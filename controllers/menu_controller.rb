@@ -15,7 +15,8 @@
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - View Entry Number n"
+     puts "6 - Exit"
      print "Enter your selection: "
  
  # #3
@@ -39,6 +40,12 @@ case selection
        read_csv
        main_menu
      when 5
+       system "clear"
+       puts "What index are you seeking?"
+       inx = gets.to_i
+       seek_number(inx)
+       main_menu         
+     when 6
        puts "Good-bye!"
  # #8
        exit(0)
@@ -87,7 +94,21 @@ end
  
    def read_csv
    end
-    def entry_submenu(entry)
+   
+   def seek_number(num)
+       until address_book.entries.size > num - 1 do
+           puts "Please enter a valid index"
+           puts "What index are you seeking?"
+           num = gets.to_i
+       end
+       sought = address_book.entries[num - 1]
+       system "clear"
+       puts sought.to_s
+       system "clear"       
+   end
+   
+   
+   def entry_submenu(entry)
  # #16
      puts "n - next entry"
      puts "d - delete entry"
