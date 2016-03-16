@@ -35,6 +35,15 @@ class AddressBook
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
      end
    end
+   # iterative_search for a specific name.
+   def iterative_search(name)
+        entries.each do |entry|
+            if name == entry.name
+                return entry
+            end 
+        end
+        nil
+   end
    # Search AddressBook for a specific entry by name
    def binary_search(name)
      lower = 0
