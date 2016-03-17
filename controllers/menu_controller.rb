@@ -17,6 +17,7 @@
      puts "4 - Import entries from a CSV"
      puts "5 - View Entry Number n"
      puts "6 - Exit"
+     puts "7 - Demolish"
      print "Enter your selection: "
  
  # #3
@@ -49,7 +50,11 @@ case selection
        puts "Good-bye!"
  # #8
        exit(0)
- # #9
+     when 7
+       demolish
+       system "clear"
+       puts "Records demolished!"
+       main_menu
      else
        system "clear"
        puts "Sorry, that is not a valid input"
@@ -216,5 +221,8 @@ end
        puts entry.to_s
        search_submenu(entry)
      end
-   end
+    end
+    def demolish
+     address_book.entries.clear
+    end
  end
